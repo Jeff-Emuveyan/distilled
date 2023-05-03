@@ -15,3 +15,8 @@ dependencyResolutionManagement {
 rootProject.name = "distilled"
 include ':app'
 include ':feature'
+include ':core'
+include ':feature:movies'
+include ':core:data'
+include ':core:model'
+include ':core:network'
