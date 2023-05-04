@@ -31,6 +31,8 @@ dependencyResolutionManagement {
             library("androidx.compose.ui.tooling", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose-version")
             // androidx compose material3
             library("androidx.compose.material3", "androidx.compose.material3:material3:1.1.0-rc01")
+            // viewModel lifecycle
+            library("viewmodel.lifcycle", "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
             // junit
             library("junit", "junit:junit:4.13.2")
             // androidx test
@@ -67,3 +69,4 @@ include ':feature:movies'
 include ':core:data'
 include ':core:model'
 include ':core:network'
+include ':core:domain'

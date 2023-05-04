@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.movies"
+    namespace = "com.example.domain"
     compileSdk = 33
 
     defaultConfig {
@@ -36,12 +36,9 @@ android {
 }
 
 dependencies {
-
     implementation(project(":core:model"))
     implementation(project(":core:data"))
-    implementation(project(":core:domain"))
 
-    implementation(libs.viewmodel.lifcycle)
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.google.material)
