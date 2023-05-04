@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface IMovieRepository {
 
-    suspend fun getMovies(pageNumber: Int): Flow<Response?>
+    suspend fun getMovies(pageNumber: Int): Response?
 }
