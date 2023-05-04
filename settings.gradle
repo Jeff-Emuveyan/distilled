@@ -11,6 +11,24 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("libs") {
+            version("compose-material-version", "1.4.1")
+            version("hilt-version", "2.44")
+            version("hilt-navigation-version", "1.0.0")
+            version("retrofit-version", "2.9.0")
+
+            // compose lifecycle
+            library("compose.lifecycle", "androidx.lifecycle:lifecycle-runtime-compose:2.6.0")
+            // hilt
+            library("hilt", "com.google.dagger", "hilt-android").versionRef("hilt-version")
+            library("hilt-compiler", "com.google.dagger", "hilt-compiler").versionRef("hilt-version")
+            // retrofit
+            library("retrofit", "com.squareup.retrofit2", "retrofit").versionRef("retrofit-version")
+            library("retrofit-gson", "com.squareup.retrofit2", "converter-gson").versionRef("retrofit-version")
+            library("okhttp", "com.squareup.okhttp3:okhttp:4.10.0")
+        }
+    }
 }
 rootProject.name = "distilled"
 include ':app'
