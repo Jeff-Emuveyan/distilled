@@ -54,6 +54,8 @@ dependencyResolutionManagement {
             // hilt
             library("hilt", "com.google.dagger", "hilt-android").versionRef("hilt-version")
             library("hilt-compiler", "com.google.dagger", "hilt-compiler").versionRef("hilt-version")
+            // hilt-navigation-compose
+            library("hilt-navigation-compose", "androidx.hilt", "hilt-navigation-compose").versionRef("hilt-navigation-version")
             // retrofit
             library("retrofit", "com.squareup.retrofit2", "retrofit").versionRef("retrofit-version")
             library("retrofit-gson", "com.squareup.retrofit2", "converter-gson").versionRef("retrofit-version")
