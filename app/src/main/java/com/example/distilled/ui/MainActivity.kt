@@ -1,4 +1,4 @@
-package com.example.distilled
+package com.example.distilled.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
