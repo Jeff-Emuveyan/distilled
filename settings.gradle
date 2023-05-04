@@ -17,6 +17,35 @@ dependencyResolutionManagement {
             version("hilt-version", "2.44")
             version("hilt-navigation-version", "1.0.0")
             version("retrofit-version", "2.9.0")
+            version("compose-version", "1.4.3")
+
+            // androidx core
+            library("androidx.core", "androidx.core:core-ktx:1.10.0")
+            // androidx lifecycle
+            library("androidx.lifecycle", "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+            // androidx activity
+            library("androidx.activity", "androidx.activity:activity-compose:1.7.1")
+            // androidx compose ui
+            library("androidx.compose.ui", "androidx.compose.ui", "ui").versionRef("compose-version")
+            // androidx compose ui tooling preview
+            library("androidx.compose.ui.tooling", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose-version")
+            // androidx compose material3
+            library("androidx.compose.material3", "androidx.compose.material3:material3:1.1.0-rc01")
+            // junit
+            library("junit", "junit:junit:4.13.2")
+            // androidx test
+            library("androidx.test", "androidx.test.ext:junit:1.1.5")
+            // androidx test espresso
+            library("androidx.espresso", "androidx.test.espresso:espresso-core:3.5.1")
+            // androidx compose ui test junit4
+            library("androidx.compose.ui.junit", "androidx.compose.ui", "ui-test-junit4").versionRef("compose-version")
+            // androidx compose ui tooling
+            library("androidx.compose.ui.tooling", "androidx.compose.ui", "ui-tooling").versionRef("compose-version")
+            // androidx compose ui test
+            library("androidx.compose.ui.test", "androidx.compose.ui", "ui-test-manifest").versionRef("compose-version")
+
+            library("androidx.appcompat", "androidx.appcompat:appcompat:1.6.1")
+            library("google.material", "com.google.android.material:material:1.8.0")
 
             // compose lifecycle
             library("compose.lifecycle", "androidx.lifecycle:lifecycle-runtime-compose:2.6.0")
