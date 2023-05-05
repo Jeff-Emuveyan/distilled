@@ -6,7 +6,8 @@ import com.example.model.ui.Movie
 class MoviePreviewParameter: PreviewParameterProvider<Movie> {
 
     override val values: Sequence<Movie> = sequenceOf(
-        Movie("Tom and Jerry",
+        Movie(666,
+            "Tom and Jerry",
             "When Walter White, a New Mexico chemistry teacher," +
                 " is diagnosed with Stage III cancer and given a prognosis of " +
                 "only two years left to live. He becomes filled with a sense of " +

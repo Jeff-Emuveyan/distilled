@@ -11,6 +11,7 @@ class FormatMovieListResponseUseCase @Inject constructor() {
     operator fun invoke(response: Response): List<Movie> {
         return response.results?.map { movieResponse ->
             Movie(
+                id = movieResponse.id ?: 1,
                 name = movieResponse.name ?: "",
                 overview = movieResponse.overview ?: "",
                 posterPath = "$IMAGE_BASE_PATH${movieResponse.posterPath ?: ""}",

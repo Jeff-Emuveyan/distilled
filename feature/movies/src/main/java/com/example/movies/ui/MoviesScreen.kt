@@ -67,7 +67,10 @@ internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
         when (movieScreenUiState) {
             is MovieScreenUiState.Success -> {
                 LazyColumn {
-                    items(movieScreenUiState.list) { movie -> Movie(movie) }
+                    items(
+                        movieScreenUiState.list,
+                        key = { movie -> movie.id }
+                    ) { movie -> Movie(movie) }
                 }
             }
             is MovieScreenUiState.Failed -> { ErrorButton(onRetry) }
