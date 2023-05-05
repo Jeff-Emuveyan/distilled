@@ -9,7 +9,7 @@ private const val IMAGE_BASE_PATH = "https://image.tmdb.org/t/p/w500"
 class FormatMovieListResponseUseCase @Inject constructor() {
 
     operator fun invoke(response: Response): List<Movie> {
-        return response.result?.map { movieResponse ->
+        return response.results?.map { movieResponse ->
             Movie(
                 name = movieResponse.name ?: "",
                 overview = movieResponse.overview ?: "",

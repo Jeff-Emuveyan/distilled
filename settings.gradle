@@ -31,6 +31,8 @@ dependencyResolutionManagement {
             library("androidx.compose.ui.tooling", "androidx.compose.ui", "ui-tooling-preview").versionRef("compose-version")
             // androidx compose material3
             library("androidx.compose.material3", "androidx.compose.material3:material3:1.1.0-rc01")
+            // android compose material
+            library("compose-material", "androidx.compose.material", "material").versionRef("compose-material-version")
             // viewModel lifecycle
             library("viewmodel.lifcycle", "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
             // junit
@@ -60,6 +62,8 @@ dependencyResolutionManagement {
             library("retrofit", "com.squareup.retrofit2", "retrofit").versionRef("retrofit-version")
             library("retrofit-gson", "com.squareup.retrofit2", "converter-gson").versionRef("retrofit-version")
             library("okhttp", "com.squareup.okhttp3:okhttp:4.10.0")
+            // coil
+            library("coil",  "io.coil-kt:coil-compose:2.2.2")
         }
     }
 }

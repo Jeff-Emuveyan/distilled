@@ -51,9 +51,11 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.activity)
+    implementation(libs.compose.lifecycle)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.compose.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test)
     androidTestImplementation(libs.androidx.espresso)
@@ -66,4 +68,6 @@ dependencies {
     kapt(libs.hilt.compiler)
     // hilt navigation
     implementation(libs.hilt.navigation.compose)
+    // coil
+    implementation(libs.coil)
 }

@@ -51,6 +51,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:movies"))
+
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.activity)

@@ -23,6 +23,8 @@ class MovieViewModel @Inject constructor(private val formatMovieListUseCase: For
         initialValue = MovieScreenUiState.Default)
 
     fun getMovies(pageNumber: Int = 1) = viewModelScope.launch {
+        _uiState.value = MovieScreenUiState.Loading
+
         when (val result = repository.getMovies(pageNumber)) {
             null -> _uiState.value = MovieScreenUiState.Failed
             else -> _uiState.value = MovieScreenUiState.Success(formatMovieListUseCase(result))

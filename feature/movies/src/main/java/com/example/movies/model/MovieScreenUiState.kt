@@ -6,5 +6,5 @@ sealed class MovieScreenUiState {
     object Default: MovieScreenUiState()
     object Loading: MovieScreenUiState()
     object Failed: MovieScreenUiState()
-    class Success(list: List<Movie>): MovieScreenUiState()
+    class Success(val list: List<Movie>): MovieScreenUiState()
 }
