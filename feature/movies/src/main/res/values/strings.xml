@@ -1,3 +1,4 @@
 <resources>
     <string name="error_message">Network Error. Tap here to try again</string>
+    <string name="sort_message">Sort movies alphabetically</string>
 </resources>

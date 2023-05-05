@@ -15,12 +15,15 @@ import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -66,11 +69,14 @@ internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
 
         when (movieScreenUiState) {
             is MovieScreenUiState.Success -> {
-                LazyColumn {
-                    items(
-                        movieScreenUiState.list,
-                        key = { movie -> movie.id }
-                    ) { movie -> Movie(movie) }
+                Column {
+                    Sort(onSort = onSortToggled)
+                    LazyColumn {
+                        items(
+                            movieScreenUiState.list,
+                            key = { movie -> movie.id }
+                        ) { movie -> Movie(movie) }
+                    }
                 }
             }
             is MovieScreenUiState.Failed -> { ErrorButton(onRetry) }
@@ -106,9 +112,28 @@ internal fun Movie(@PreviewParameter(MoviePreviewParameter::class) movie: Movie)
 }
 
 @Composable
+internal fun Sort(onSort:(Boolean) -> Unit) {
+    var checked by remember { mutableStateOf(false) }
+
+    Column(modifier = Modifier.padding(8.0.dp)) {
+        Text(text = stringResource(id = R.string.sort_message))
+
+        Switch(
+            checked = checked,
+            onCheckedChange = {
+                checked = it
+                onSort(checked)
+            }
+        )
+    }
+}
+
+@Composable
 internal fun ErrorButton(onRetry:() -> Unit) {
     Column(
-        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
