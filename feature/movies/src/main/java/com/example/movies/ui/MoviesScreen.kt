@@ -61,10 +61,7 @@ fun MoviesScreen(movieViewModel: MovieViewModel = hiltViewModel()) {
             movieViewModel.sort(MovieListSortingStyle.BY_VOTE_AVERAGE)
             Toast.makeText(context, context.getString(R.string.reverted), Toast.LENGTH_LONG).show()
         }
-        coroutineScope.launch {
-            // Animate scroll to the 10th item
-            listState.animateScrollToItem(index = 0)
-        }
+        coroutineScope.launch { listState.animateScrollToItem(index = 0) }
     })
 }
 
