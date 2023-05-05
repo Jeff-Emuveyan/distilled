@@ -14,6 +14,6 @@ class MoviePreviewParameter: PreviewParameterProvider<Movie> {
                 "fearlessness and an unrelenting desire to secure his family's financial " +
                 "future at any cost as he enters the dangerous world of drugs and crime.",
             "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg",
-            "2020-05-06")
+            "2020-05-06", 1.4)
     )
 }

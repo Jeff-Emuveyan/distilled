@@ -15,7 +15,8 @@ class FormatMovieListResponseUseCase @Inject constructor() {
                 name = movieResponse.name ?: "",
                 overview = movieResponse.overview ?: "",
                 posterPath = "$IMAGE_BASE_PATH${movieResponse.posterPath ?: ""}",
-                firstAirDate = movieResponse.firstAirDate ?: ""
+                firstAirDate = movieResponse.firstAirDate ?: "",
+                voteAverage = movieResponse.voteAverage ?: 1.0
             )
         } ?: emptyList()
 
