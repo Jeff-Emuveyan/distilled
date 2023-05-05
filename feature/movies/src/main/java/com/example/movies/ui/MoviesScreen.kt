@@ -1,22 +1,24 @@
 package com.example.movies.ui
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ExtendedFloatingActionButton
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.PullRefreshState
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -42,7 +44,10 @@ fun MoviesScreen(movieViewModel: MovieViewModel = hiltViewModel()) {
 
     LaunchedEffect(Unit) { movieViewModel.getMovies() }
 
-    MoviesScreen(uiState.value, refreshing, refreshingState, {
+    MoviesScreen(
+        uiState.value,
+        refreshing,
+        refreshingState, {
         movieViewModel.getMovies()
     }, {
 
@@ -65,9 +70,7 @@ internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
                     items(movieScreenUiState.list) { movie -> Movie(movie) }
                 }
             }
-            is MovieScreenUiState.Failed -> {
-                ErrorText()
-            }
+            is MovieScreenUiState.Failed -> { ErrorButton(onRetry) }
             else -> {}
         }
 
@@ -100,7 +103,17 @@ internal fun Movie(@PreviewParameter(MoviePreviewParameter::class) movie: Movie)
 }
 
 @Composable
-@Preview
-internal fun ErrorText() {
-    Text(text = stringResource(id = R.string.error_message))
+internal fun ErrorButton(onRetry:() -> Unit) {
+    Column(
+        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ExtendedFloatingActionButton(
+            onClick = onRetry,
+            backgroundColor = MaterialTheme.colorScheme.error,
+            icon = { Icon(Icons.Filled.Refresh, stringResource(id = R.string.error_message)) },
+            text = { Text(text = stringResource(id = R.string.error_message)) },
+        )
+    }
 }
