@@ -16,11 +16,11 @@ import javax.inject.Inject
 class MovieViewModel @Inject constructor(private val formatMovieListUseCase: FormatMovieListResponseUseCase,
                                          private val repository: IMovieRepository): ViewModel() {
 
-    private val _uiState = MutableStateFlow<MovieScreenUiState>(MovieScreenUiState.Default)
+    private val _uiState = MutableStateFlow<MovieScreenUiState>(MovieScreenUiState.Loading)
     val uiState = _uiState.stateIn(
         viewModelScope,
         SharingStarted.WhileSubscribed(5000),
-        initialValue = MovieScreenUiState.Default)
+        initialValue = MovieScreenUiState.Loading)
 
     fun getMovies(pageNumber: Int = 1) = viewModelScope.launch {
         _uiState.value = MovieScreenUiState.Loading

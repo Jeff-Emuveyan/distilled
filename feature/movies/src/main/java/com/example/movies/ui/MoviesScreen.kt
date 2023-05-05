@@ -37,7 +37,7 @@ fun MoviesScreen(movieViewModel: MovieViewModel = hiltViewModel()) {
 
     val uiState = movieViewModel.uiState.collectAsStateWithLifecycle()
 
-    val refreshing by remember { mutableStateOf(uiState.value is MovieScreenUiState.Loading) }
+    val refreshing = uiState.value is MovieScreenUiState.Loading
     val refreshingState = rememberPullRefreshState(refreshing, { movieViewModel.getMovies() })
 
     LaunchedEffect(Unit) { movieViewModel.getMovies() }
