@@ -49,4 +49,9 @@ dependencies {
     // hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+    // coroutine test:
+    testImplementation(libs.kotlinx.coroutines.test)
+    // mockk
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
 }

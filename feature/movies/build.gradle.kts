@@ -62,6 +62,14 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.junit)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test)
+    // coroutine test:
+    testImplementation(libs.kotlinx.coroutines.test)
+    // mockk
+    testImplementation(libs.mockk.android)
+    testImplementation(libs.mockk.agent)
+    // kotlin.test
+    implementation(kotlin("test-common"))
+    implementation(kotlin("test"))
 
     // hilt
     implementation(libs.hilt)

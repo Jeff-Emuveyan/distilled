@@ -18,6 +18,7 @@ dependencyResolutionManagement {
             version("hilt-navigation-version", "1.0.0")
             version("retrofit-version", "2.9.0")
             version("compose-version", "1.4.3")
+            version("mockkVersion", "1.13.5")
 
             // androidx core
             library("androidx.core", "androidx.core:core-ktx:1.10.0")
@@ -64,6 +65,11 @@ dependencyResolutionManagement {
             library("okhttp", "com.squareup.okhttp3:okhttp:4.10.0")
             // coil
             library("coil",  "io.coil-kt:coil-compose:2.2.2")
+            // coroutines test
+            library("kotlinx-coroutines-test", "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+            // mockk
+            library("mockk-android", "io.mockk", "mockk-android").versionRef("mockkVersion")
+            library("mockk-agent", "io.mockk", "mockk-agent").versionRef("mockkVersion")
         }
     }
 }

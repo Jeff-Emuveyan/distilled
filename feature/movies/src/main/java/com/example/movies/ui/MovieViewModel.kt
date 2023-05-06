@@ -8,10 +8,7 @@ import com.example.model.ui.Movie
 import com.example.movies.model.MovieListSortingStyle
 import com.example.movies.model.MovieScreenUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
@@ -22,12 +19,9 @@ class MovieViewModel @Inject constructor(private val ioDispatcher: CoroutineCont
                                          private val repository: IMovieRepository): ViewModel() {
 
     private val _uiState = MutableStateFlow<MovieScreenUiState>(MovieScreenUiState.Loading)
-    val uiState = _uiState.stateIn(
-        viewModelScope,
-        SharingStarted.WhileSubscribed(5000),
-        initialValue = MovieScreenUiState.Loading)
+    val uiState = _uiState.asStateFlow()
 
-    fun getMovies(pageNumber: Int = 1) = viewModelScope.launch {
+    fun getMovies(pageNumber: Int = 1) = viewModelScope.launch(ioDispatcher) {
         _uiState.value = MovieScreenUiState.Loading
 
         when (val result = repository.getMovies(pageNumber)) {
