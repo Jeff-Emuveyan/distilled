@@ -24,7 +24,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -38,6 +41,9 @@ import com.example.movies.model.MovieListSortingStyle
 import com.example.movies.model.MovieScreenUiState
 import com.example.movies.util.MoviePreviewParameter
 import kotlinx.coroutines.launch
+
+const val PULL_REFRESH_TAG = "PULL_REFRESH_TAG"
+const val MOVIE_LIST_TAG = "MOVIE_LIST_TAG"
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -80,7 +86,7 @@ internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
             is MovieScreenUiState.Success -> {
                 Column {
                     Sort(onSort = onSortToggled)
-                    LazyColumn(state = listState) {
+                    LazyColumn(state = listState, modifier = Modifier.testTag(MOVIE_LIST_TAG)) {
                         items(
                             movieScreenUiState.list,
                             key = { movie -> movie.id }
@@ -92,11 +98,9 @@ internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
             else -> {}
         }
 
-        PullRefreshIndicator(
-            refreshing,
-            refreshingState,
-            modifier = Modifier.align(Alignment.TopCenter)
-        )
+        PullRefreshIndicator(refreshing, refreshingState, modifier = Modifier
+                .align(Alignment.TopCenter)
+                .testTag(PULL_REFRESH_TAG))
     }
 }
 
