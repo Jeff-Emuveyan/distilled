@@ -18,7 +18,7 @@ import org.junit.Test
 import kotlin.test.assertIs
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MovieViewModelTest {
+internal class MovieViewModelTest {
 
     @get:Rule
     val mockkRule = MockKRule(this)
