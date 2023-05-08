@@ -39,6 +39,6 @@ of the app.
 
 This test can be found here:
 
-https://github.com/Jeff-Emuveyan/distilled/tree/master/benchmark
+https://github.com/Jeff-Emuveyan/distilled/blob/master/benchmark/src/main/java/com/example/benchmark/DistilledAppStartupBenchmark.kt
 
 
