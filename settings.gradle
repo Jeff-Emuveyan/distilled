@@ -21,7 +21,7 @@ dependencyResolutionManagement {
             version("mockkVersion", "1.13.5")
 
             // androidx core
-            library("androidx.core", "androidx.core:core-ktx:1.10.0")
+            library("androidx.core", "androidx.core:core-ktx:1.9.0")
             // androidx lifecycle
             library("androidx.lifecycle", "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
             // androidx activity
