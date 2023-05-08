@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.repository.IMovieRepository
 import com.example.domain.FormatMovieListResponseUseCase
+import com.example.domain.IFormatMovieListResponseUseCase
 import com.example.model.ui.Movie
 import com.example.movies.model.MovieListSortingStyle
 import com.example.movies.model.MovieScreenUiState
@@ -15,7 +16,7 @@ import kotlin.coroutines.CoroutineContext
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(private val ioDispatcher: CoroutineContext,
-                                         private val formatMovieListUseCase: FormatMovieListResponseUseCase,
+                                         private val formatMovieListUseCase: IFormatMovieListResponseUseCase,
                                          private val repository: IMovieRepository): ViewModel() {
 
     private val _uiState = MutableStateFlow<MovieScreenUiState>(MovieScreenUiState.Loading)

@@ -6,9 +6,9 @@ import javax.inject.Inject
 
 private const val IMAGE_BASE_PATH = "https://image.tmdb.org/t/p/w500"
 
-class FormatMovieListResponseUseCase @Inject constructor() {
+class FormatMovieListResponseUseCase @Inject constructor(): IFormatMovieListResponseUseCase {
 
-    operator fun invoke(response: Response): List<Movie> {
+    override operator fun invoke(response: Response): List<Movie> {
         return response.results?.map { movieResponse ->
             Movie(
                 id = movieResponse.id ?: 1,
