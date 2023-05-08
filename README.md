@@ -1,5 +1,7 @@
 # distilled Tech Test Solution
 
+*Ensure you have the latest version of Android studio (Electric Eel preferrably) before cloning this repository.*
+
 This is a simple android application that displays a list of movies. 
 At the top of the screen, there is a switch that can be used to toggle the sorting arrangment of the list.
 
