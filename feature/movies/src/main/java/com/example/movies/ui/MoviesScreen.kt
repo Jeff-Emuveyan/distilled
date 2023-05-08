@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -112,7 +113,8 @@ internal fun Movie(@PreviewParameter(MoviePreviewParameter::class) movie: Movie)
             contentScale = ContentScale.FillWidth,
             modifier = Modifier.fillMaxWidth(),
             model = movie.posterPath,
-            contentDescription = movie.posterPath
+            contentDescription = movie.posterPath,
+            placeholder = painterResource(R.drawable.image_24)
         )
         Column(modifier = Modifier.padding(8.0.dp)) {
             Text(text = movie.name, style = MaterialTheme.typography.headlineLarge)
