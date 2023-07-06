@@ -22,6 +22,10 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class DistilledAppStartupBenchmark {
+
+    // Before running benchmark test, remember to switch your build variants to the appropriate variant.
+    // https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview#set-up-app
+
     @get:Rule
     val benchmarkRule = MacrobenchmarkRule()
 
