@@ -70,6 +70,8 @@ dependencyResolutionManagement {
             // mockk
             library("mockk-android", "io.mockk", "mockk-android").versionRef("mockkVersion")
             library("mockk-agent", "io.mockk", "mockk-agent").versionRef("mockkVersion")
+            // ui-automator
+            library("uiautomator", "androidx.test.uiautomator:uiautomator:2.3.0-alpha03")
         }
     }
 }

@@ -21,6 +21,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -29,6 +30,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -72,7 +75,8 @@ fun MoviesScreen(movieViewModel: MovieViewModel = hiltViewModel()) {
     })
 }
 
-@OptIn(ExperimentalMaterialApi::class)
+
+@OptIn(ExperimentalMaterialApi::class, ExperimentalComposeUiApi::class)
 @Composable
 internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
                  listState: LazyListState,
@@ -81,13 +85,18 @@ internal fun MoviesScreen(movieScreenUiState: MovieScreenUiState,
                  onRetry:() -> Unit,
                  onSortToggled: (Boolean) -> Unit) {
 
-    Box(modifier = Modifier.pullRefresh(refreshingState)) {
+    Box(modifier = Modifier.pullRefresh(refreshingState).semantics { testTagsAsResourceId = true }) {
 
         when (movieScreenUiState) {
             is MovieScreenUiState.Success -> {
-                Column {
+                Column(modifier = Modifier.semantics {
+                    testTagsAsResourceId = true
+                }) {
                     Sort(onSort = onSortToggled)
-                    LazyColumn(state = listState, modifier = Modifier.testTag(MOVIE_LIST_TAG)) {
+                    LazyColumn(state = listState, modifier = Modifier.semantics {
+                        testTagsAsResourceId = true
+                        testTag = MOVIE_LIST_TAG
+                    }.testTag(MOVIE_LIST_TAG)) {
                         items(
                             movieScreenUiState.list,
                             key = { movie -> movie.id }
@@ -126,11 +135,15 @@ internal fun Movie(@PreviewParameter(MoviePreviewParameter::class) movie: Movie)
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 internal fun Sort(onSort:(Boolean) -> Unit) {
     var checked by remember { mutableStateOf(false) }
 
-    Column(modifier = Modifier.padding(8.0.dp)) {
+    Column(modifier = Modifier.padding(8.0.dp).semantics {
+        testTagsAsResourceId = true
+        testTag = MOVIE_LIST_TAG
+    }) {
         Text(text = stringResource(id = R.string.sort_message))
 
         Switch(

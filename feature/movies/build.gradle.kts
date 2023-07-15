@@ -70,7 +70,8 @@ dependencies {
     // kotlin.test
     implementation(kotlin("test-common"))
     implementation(kotlin("test"))
-
+    // ui-automator test
+    implementation(libs.uiautomator)
     // hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
