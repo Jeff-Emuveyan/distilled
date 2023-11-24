@@ -2,7 +2,7 @@
 
 *Ensure you have the latest version of Android studio (Electric Eel preferrably) before cloning this repository.*
 
-This is a simple android application that displays a list of movies. 
+This is an android application that displays a list of movies. 
 At the top of the screen, there is a switch that can be used to toggle the sorting arrangment of the list.
 
 <img src="https://firebasestorage.googleapis.com/v0/b/memo-24031.appspot.com/o/WhatsApp%20Image%202023-05-07%20at%2023.19.40.jpeg?alt=media&token=573d68d3-5277-4ffb-86ab-7d1d2d33db7f" width="300" height="650" />
